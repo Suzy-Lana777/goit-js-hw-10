@@ -111,3 +111,76 @@ Pages, у гілку `gh-pages`, щоразу, коли оновлюється �
 3. Якщо всі кроки пройшли успішно, зібрана продакшн версія файлів проекту
    відправляється у гілку `gh-pages`. В іншому випадку, у лозі виконання скрипта
    буде вказано в чому проблема.
+
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Countdown Timer</title>
+</head>
+<body>
+
+<input type="text" id="datetime-picker" />
+<button type="button" data-start>Start</button>
+
+<div class="timer">
+  <div class="field">
+    <span class="value" data-days>00
+    <span class="label">Days
+  </div>
+  <div class="field">
+    <span class="value" data-hours>00
+    <span class="label">Hours
+  </div>
+  <div class="field">
+    <span class="value" data-minutes>00
+    <span class="label">Minutes
+  </div>
+  <div class="field">
+    <span class="value" data-seconds>00
+    <span class="label">Seconds
+  </div>
+</div>
+
+<script>
+const startBtn = document.querySelector('[data-start]');
+const daysSpan = document.querySelector('[data-days]');
+const hoursSpan = document.querySelector('[data-hours]');
+const minutesSpan = document.querySelector('[data-minutes]');
+const secondsSpan = document.querySelector('[data-seconds]');
+
+let countdownInterval;
+
+startBtn.addEventListener('click', () => {
+  clearInterval(countdownInterval);
+
+  const targetDate = new Date(document.getElementById('datetime-picker').value).getTime();
+
+  countdownInterval = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    daysSpan.textContent = formatTime(days);
+    hoursSpan.textContent = formatTime(hours);
+    minutesSpan.textContent = formatTime(minutes);
+    secondsSpan.textContent = formatTime(seconds);
+
+    if (distance < 0) {
+      clearInterval(countdownInterval);
+    }
+  }, 1000);
+});
+
+function formatTime(time) {
+  return time < 10 ? `0${time}` : time;
+}
+</script>
+
+</body>
+</html>
