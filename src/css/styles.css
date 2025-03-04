@@ -194,23 +194,25 @@ button:active {
 
 
 .snackbar-container {
+  width: 380px;
   padding-left: 156px;
   display: flex;
- flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
  .snackbar-container button   {
+  margin-left: 0;
   font-weight: 500;
-font-size: 16px;
-line-height: 1.5;
-letter-spacing: 0.04em;
-color: #fff;
-background: #4e75ff;
-border: none;
-border-radius: 8px;
-padding: 8px 16px;
-width: 100%; 
-height: 40px;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+  background: #4e75ff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 100%; 
+  height: 40px;
 
 }
 
@@ -222,17 +224,17 @@ height: 40px;
   align-items: flex-start;
   gap: 8px;
 }
+
 .delay input {
-
   padding-left: 10px;
-margin-bottom: 16px;
-width: 360px;
-height: 40px;
-border: 1px solid #808080;
-border-radius: 4px;
+  margin-bottom: 16px;
+  width: 360px;
+  height: 40px;
+  border: 1px solid #808080;
+  border-radius: 4px;
 }
-.delay input:hover {
 
+.delay input:hover {
   border: 1px solid #4e75ff;
 }
 
@@ -241,7 +243,14 @@ fieldset legend{
   text-align: start;
 }
 
+.snack {
+  width: 13px;
+  height: 13px;
+}
+
 fieldset {
+  padding-left: 28px;
+  height: 64px;
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
@@ -250,7 +259,7 @@ fieldset {
   margin-bottom: 24px;
   text-align: center;
   margin-left: 0px;
-  padding: 14px 48px 8px 48px;
+  /* padding: 14px 48px 8px 48px; */
 }
 
 .fulfilled {
